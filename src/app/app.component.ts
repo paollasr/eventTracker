@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ArtistsService } from 'src/app/artists.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Event Tracker Application';
+
 }

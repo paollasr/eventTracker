@@ -1,0 +1,28 @@
+<form class="form" action="index.html" method="post">
+
+  <div>
+    <label for="city">
+      Select city:
+    </label>
+    <select name="cities" id="cities">
+      <option value="amsterdam">Amsterdam</option>
+      <option value="barcelona">Barcelona</option>
+      <option value="berlin">Berlin</option>
+      <option value="frankfurt">Frankfurt</option>
+      <option value="london">London</option>
+    </select>
+  </div>
+
+
+  <div>
+    <label for="date">
+      Select date:
+    </label>
+    <input type="date" name="eventDate" value="eventDate">
+  </div>
+
+  <div>
+  <button (click)="searchEvent()" class="button" >Search Events</button>
+  </div>
+
+</form>
