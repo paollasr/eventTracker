@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
-import { ArtistsService } from 'src/app/artists.service';
+//import { ArtistsService } from 'src/app/artists.service';
+import { Observable } from 'rxjs';
+import { Artist, ArtistsService } from 'src/app/artists.service';
 
 @Component({
   selector: 'app-artist',
@@ -10,9 +12,16 @@ import { ArtistsService } from 'src/app/artists.service';
 
 export class ListFavArtistsComponent {
   title = "Favorite Artists";
+  apiFavArtists: Observable<Artist[]>;
 
-  constructor(private artists:ArtistsService) {
-    
+  constructor(private artistsService: ArtistsService) {
+    this.apiFavArtists = this.artistsService.getfavArtists();
+
+    this.apiFavArtists.subscribe( artist => {
+      console.log(this.apiFavArtists);
+    })
   }
+
+
 
 }

@@ -1,7 +1,11 @@
-<h2> {{ title }}</h2>
+<div class="container">
 
-<ul>
+<h2 class="event-title"> {{ title }}</h2>
+
+<ul class="event-list">
    <li *ngFor="let event of events">
      {{ event | json }}
      </li>
 </ul>
+
+</div>

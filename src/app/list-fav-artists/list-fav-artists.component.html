@@ -1,7 +1,11 @@
-<h2>{{title}}</h2>
-<ul>
-   <!-- <li *ngFor="let artist of artists"> -->
-    <li>
-     <!-- {{ artist | json }} -->
-     </li>
+<div class="container">
+
+<h2 class="artist-title">{{title}}</h2>
+
+<ul class="artist-list">
+  <li *ngFor="let Artist of apiFavArtists | async">
+    {{Artist}}
+
+  </li>
 </ul>
+</div>

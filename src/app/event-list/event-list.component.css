@@ -1,0 +1,18 @@
+.container {
+    border: 3px solid black;
+    padding: 10px 10px;
+    display: flex;
+    height: 800 px;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.event-title {
+
+}
+
+.event-list {
+
+}

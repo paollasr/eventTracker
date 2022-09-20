@@ -4,25 +4,31 @@
     <label for="city">
       Select city:
     </label>
-    <select name="cities" id="cities">
-      <option value="amsterdam">Amsterdam</option>
-      <option value="barcelona">Barcelona</option>
-      <option value="berlin">Berlin</option>
-      <option value="frankfurt">Frankfurt</option>
-      <option value="london">London</option>
+
+    <p>Select city {{ selectedCity }} using ng model</p>
+
+    <select name="cities" [(ngModel)] = "selectedCity">
+      <option value="Amsterdam">Amsterdam</option>
+      <option value="Berlin">Berlin</option>
+      <option value="London">London</option>
+      <option value="Frankfurt">Frankfurt</option>
     </select>
   </div>
 
 
   <div>
     <label for="date">
-      Select date:
+      Choose a date:
     </label>
-    <input type="date" name="eventDate" value="eventDate">
+    <p>Select date {{ selectedDate }} using ng model</p>
+
+    <input type="date" (change)="sendDataOnChange($event)" [(ngModel)] = "selectedDate">
   </div>
 
+
+
   <div>
-  <button (click)="searchEvent()" class="button" >Search Events</button>
+    <button (click)="searchEvent()" class="button">Search Events</button>
   </div>
 
 </form>

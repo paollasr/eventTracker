@@ -1,0 +1,17 @@
+.container {
+    border: 3px solid black;
+    height: 800 px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.artist-title {
+
+}
+
+.artist-list {
+
+}
