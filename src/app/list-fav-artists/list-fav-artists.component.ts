@@ -13,6 +13,7 @@ import { Artist, ArtistsService } from 'src/app/artists.service';
 export class ListFavArtistsComponent {
   title = "Favorite Artists";
   apiFavArtists: Observable<Artist[]>;
+  artists = ['Coldplay', 'Iron Man', 'Mettalica', 'Nina Simone'];
 
   constructor(private artistsService: ArtistsService) {
     this.apiFavArtists = this.artistsService.getfavArtists();

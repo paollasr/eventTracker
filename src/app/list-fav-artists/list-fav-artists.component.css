@@ -1,5 +1,5 @@
 .container {
-    border: 3px solid black;
+    border: 1px solid black;
     height: 800 px;
     padding: 10px 10px;
     display: flex;

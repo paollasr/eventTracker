@@ -14,6 +14,7 @@ export class UserMenuComponent {
 
   selectedCity: string = '';
   selectedDate: string = '';
+  showText = false;
 
   sendDataOnChange(event: any){
     console.log(event.target.value);
@@ -23,8 +24,12 @@ export class UserMenuComponent {
   }
 
   searchEvent(){
+    this.showText = true;
     console.log("click!");
+    this.selectedCity = '';
+    //sthis.selectedDate = null;
   }
+
   //
   //
   //
