@@ -5,7 +5,7 @@
       Select city:
     </label>
 
-    <p *ngIf=showText>Select city {{ selectedCity }} using ng model</p>
+    <p *ngIf="showText">Select city {{ selectedCity }} using ng model</p>
 
     <select name="cities" [(ngModel)] = "selectedCity">
       <option value="Amsterdam">Amsterdam</option>
@@ -20,15 +20,15 @@
     <label for="date">
       Choose a date:
     </label>
-    <p *ngIf=showText>Select date {{ selectedDate }} using ng model</p>
+    <p *ngIf="showText">Select date {{ selectedDate }} using ng model</p>
 
-    <input type="date" (change)="sendDataOnChange($event)" [(ngModel)] = "selectedDate">
+    <input name="selectedDate" type="date" [(ngModel)] = "selectedDate">
   </div>
 
 
 
   <div>
-    <button (click)="searchEvent()" class="btn btn-outline-success" [disabled]="selectedDate ==''" >Search Events</button>
+    <button (click)="searchEvent()" class="btn btn-outline-success" [disabled]="!selectedDate || !artistsService.artist" >Search Events</button>
   </div>
 
 </form>

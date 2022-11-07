@@ -3,9 +3,12 @@
 <h2 class="artist-title">{{title}}</h2>
 
 <ul class="artist-list">
-  <li *ngFor="let Artist of artists">
-    {{Artist}}
+  <li *ngFor="let Artist of apiFavArtists|async" (click) = "artistsService.artist = Artist"
+  style="font-weight:{{artistsService.artist === Artist? 'bold':''}}"  >
+    {{Artist.name}}
 
   </li>
+<p>Selected Artist {{artistsService.artist}}</p>
+
 </ul>
 </div>
