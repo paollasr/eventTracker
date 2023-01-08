@@ -6,9 +6,9 @@
   <li *ngFor="let Artist of apiFavArtists|async" (click) = "artistsService.artist = Artist"
   style="font-weight:{{artistsService.artist === Artist? 'bold':''}}"  >
     {{Artist.name}}
-
   </li>
-<p>Selected Artist {{artistsService.artist}}</p>
+
+<!-- <p>Selected Artist {{artistsService|json}}</p> -->
 
 </ul>
 </div>

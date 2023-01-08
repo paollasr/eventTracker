@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 /* {
   "artists": [
@@ -126,14 +128,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 } */
 
 //format of fav artists json
-export interface Artist{
+export interface Artist {
   id: string;
   name: string;
   type: string;
 }
 
-export interface SpotifyResponse{
-  artists:Artist[]
+export interface SpotifyResponse {
+  artists: Artist[]
 }
 
 @Injectable({
@@ -142,32 +144,33 @@ export interface SpotifyResponse{
 
 export class ArtistsService {
 
-  public artist : Artist | undefined;
+  public artist: Artist | undefined;
 
- // private clientId: string = '477442391be640008a4d77335abd8f47';
-  //private artistUrl: string= 'https://api.spotify.com/v1/search?type=artist&limit=10&client_id='+ this.clientId+'&q=';
+  //Method to get followed artists from spotify API
+  // private clientId: string = '477442391be640008a4d77335abd8f47';
   urlTest = 'https://api.spotify.com/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6';
-
-
- // urlTest = 'https://jsonplaceholder.typicode.com/posts/1';
- // urlTest = 'https://api.spotify.com/v1/me/following?type=artist&after=0I2XqVXqHScXjHhk6AYYRe&limit=10';
+  //urlTest = 'https://api.spotify.com/v1/me/following?type=artist&limit=50'
 
   constructor(private http: HttpClient) { }
+  public getfavArtists(): Observable<SpotifyResponse> {
 
-  getfavArtists(){
-    
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: 'Bearer BQDAGxtjS1GemRxRrkcawwdiXYc8Q_dpKddqvd089oRgsPmEaPEcd251obcr0z3wrmd_cio7RfL4U8RnBcYTJC9UI1gV7Z-juklGZiOlzq8__92bT9Z7YyowWTIhyae11hntFqClmpFEzmY6Ky6HL1o58cwSjcMPtycND7VksonA0NSNXFkrYtl_S37yfekFYhGMzII'
+      Authorization: 'Bearer BQCMAB0GzH4CnL2gyUsucOiK69vLyvKIaTxLPPI3ZrVttxGrafsk2cYqpQgW7UjbmijxtjxPC5L3eaGgG3zyxc_zD4MTRm6oxbRhW1CXenCnfblpO_DJZRTXhOlOZ94Tsu875c6lZJ31a2OPdV26Yuso6fswXIQjcwBLFu8CkjR6mCiUG9zKsWiilW-JlvRTvpnQug-JYPg8xwE'
     });
-    //headers .set('Accept', 'application/json');
-    //headers .set('Content-Type', 'application/json');
-    //headers .set('Authorization', 'Bearer BQDAGxtjS1GemRxRrkcawwdiXYc8Q_dpKddqvd089oRgsPmEaPEcd251obcr0z3wrmd_cio7RfL4U8RnBcYTJC9UI1gV7Z-juklGZiOlzq8__92bT9Z7YyowWTIhyae11hntFqClmpFEzmY6Ky6HL1o58cwSjcMPtycND7VksonA0NSNXFkrYtl_S37yfekFYhGMzII');
     console.log(headers);
 
-
-    //let url = this.artistUrl;
-    return this.http.get<SpotifyResponse>(this.urlTest, {headers : headers});
+    return this.http.get<SpotifyResponse>(this.urlTest, { headers: headers });
   }
+
+  // //converting artist name to a JSON string
+  // setArtist(key: string, value: Artist): void {
+  //   localStorage.setItem(key, JSON.stringify(value));
+  // }
+  // //and storeing it to local storage
+  // getArtist(key: string): Artist {
+  //   return JSON.parse(localStorage.getItem(key)) as Artist;
+  // }
+
 }
